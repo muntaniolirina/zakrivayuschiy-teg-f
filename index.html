@@ -231,6 +231,7 @@
           </article>
         </li>
       </ul>
+
       <button class="save-button card__button" type="button" onclick="window['modal-window'].showModal();" aria-controls="modal-window">
         <svg class="floppy__icon" width="39" height="39" viewBox="0 0 39 39" xmlns="http://www.w3.org/2000/svg">
           <use href="./svg/floppy.svg#disk"></use>
@@ -240,14 +241,15 @@
 
       <dialog id="modal-window" class="dialog">
 
-          <svg class="floppy__icon" width="39" height="39" viewBox="0 0 39 39" xmlns="http://www.w3.org/2000/svg">
+        <svg class="floppy__icon" width="39" height="39" viewBox="0 0 39 39" xmlns="http://www.w3.org/2000/svg">
           <use href="./svg/floppy.svg#disk"></use>
         </svg>
-          <p class="dialog__text">Вставьте дискету, чтобы продолжить</p>
+        <p class="dialog__text">Вставьте дискету, чтобы продолжить</p>
         
         <button class="dialog_close-button card__button" type="button" onclick="window['modal-window'].close();">
           <span class="button__text">OK</span>
         </button>
+
       </dialog>
 
     </main>
