@@ -18,6 +18,11 @@
   
    --label-outline-color: #fff;
 
- 
-  
+  --accent-color: #000;
+  --light-color: #fff; /*переименовать на цвет текста кнопки*/
+
+  --heart-contour-color: black;
+  --animation-fill-color: #FF0000;
+  --hover-fill-color: black;
+
 }
