@@ -171,6 +171,13 @@
   text-stroke: 1px var(--label-outline-color, #fff);
 }
 
+@supports (-webkit-text-stroke: 1px var(--label-outline-color, #fff)) or (text-stroke: 1px var(--label-outline-color, #fff)) {
+  .image-label {
+    -webkit-text-stroke: 1px var(--label-outline-color, #fff);
+    text-stroke: 1px var(--label-outline-color, #fff);
+  }
+}
+
 @supports not ((text-stroke) or (-webkit-text-stroke)) {
   .image-label {
     text-shadow:
