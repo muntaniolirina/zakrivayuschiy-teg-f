@@ -11,6 +11,7 @@
 */
 .like-icon {
   transform-origin: center;
+  margin: auto;
 }
 
 .like-icon .sparks {
@@ -18,7 +19,7 @@
 }
 
 .like-icon .contour {
-  fill: var(--heart-contour-color);
+  fill: var(--heart-contour-color, black);
   transition: fill 0.1s linear;
 }
 

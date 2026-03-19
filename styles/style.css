@@ -56,7 +56,7 @@
   box-shadow: var(--box-shadow-inset, inset 0 0 0 2px #000);
   /*чтобы не ехал layout*/
   color: var(--main-text-color, #000);
-  font-family: var(--font-family-accent, "PressStart2P");
+  font-family: var(--font-family-accent, "PressStart2P"), fantasy;
   background-color: var(--bg-color, #fff);
 }
 
@@ -156,13 +156,14 @@
   filter: contrast(180%);
 }
 
+/*ЛЭЙБЛ*/
 .image-label {
   position: absolute;
   top: 25px;
   right: 27px;
   opacity: 0.5;
   color: var(--main-text-color, #000);
-  font-family: var(--font-family-accent, "PressStart2P"), sans-serif;
+  font-family: var(--font-family-accent, "PressStart2P"), fantasy;
   font-weight: var(--font-weight-regular, 400);
   font-size: var(--font-size-label-text, 14px);
   line-height: 100%;
@@ -171,14 +172,18 @@
   text-stroke: 1px var(--label-outline-color, #fff);
 }
 
-@supports (-webkit-text-stroke: 1px var(--label-outline-color, #fff)) or (text-stroke: 1px var(--label-outline-color, #fff)) {
+@supports (-webkit-text-stroke: 1px var(--label-outline-color, #fff)) or
+  (text-stroke: 1px var(--label-outline-color, #fff)) {
   .image-label {
     -webkit-text-stroke: 1px var(--label-outline-color, #fff);
     text-stroke: 1px var(--label-outline-color, #fff);
   }
 }
 
-@supports not ((text-stroke) or (-webkit-text-stroke)) {
+@supports not (
+  (-webkit-text-stroke: 1px var(--label-outline-color, #fff)) or
+    (text-stroke: 1px var(--label-outline-color, #fff))
+) {
   .image-label {
     text-shadow:
       -1px -1px 0 var(--label-outline-color, #fff),
@@ -193,7 +198,7 @@
   flex-direction: column;
   align-items: end;
   gap: 25px;
-  padding: 26px 27px 21px;
+  padding: 26px 27px 25px;
 }
 
 .card__text {
@@ -207,7 +212,17 @@
 
 .card__buttons {
   display: flex;
-  gap: 3px;
+  gap: 4px;
+}
+
+.card__icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  padding: 0;
+  outline: none;
+  background-color: transparent;
 }
 
 .card__button {
@@ -217,21 +232,15 @@
   background-color: var(--button-bg-color, #fff);
 }
 
-.card__icon-button {
-  border: 2px solid transparent;
-  padding: 0;
-  background-color: transparent;
-}
-
 /*КНОПКА LIKE*/
 .card__like-button {
   min-inline-size: 130px;
-  max-block-size: 38px;
+  max-block-size: 40px;
 }
 
 .button__text {
   display: block;
-  font-family: var(--font-family-accent, "PressStart2P"), sans-serif;
+  font-family: var(--font-family-accent, "PressStart2P"), fantasy;
   font-size: var(--font-size-button-text, 14px);
   line-height: var(--line-height-button-text, 90%);
 }
@@ -250,52 +259,6 @@
 .floppy__icon {
   max-width: 21px;
   height: auto;
-}
-
-/*ДИАЛОГОВОЕ ОКНО*/
-.dialog {
-  position: fixed;
-  inset: 0;
-  border: none;
-  padding-inline: 30px;
-  padding-block: 30px;
-  box-shadow: var(--box-shadow-inset, inset 0 0 0 2px #000);
-  font-family: var(--font-family-accent), "PressStart2P", sans-serif;
-  font-weight: var(--font-weight-regular, 400);
-  font-size: var(--font-size-dialog-text, 14px);
-  max-inline-size: 353px; /*341 mobile*/
-}
-
-.dialog__text {
-  line-height: var(--line-height-dialog-text, 150%);
-  text-transform: uppercase;
-}
-
-.dialog .floppy__icon {
-  max-width: 39px;
-  height: auto;
-}
-
-.dialog_close-button {
-  width: 100%;
-  padding-block: 9px;
-}
-
-.dialog[open] {
-  display: grid;
-  grid-template-columns: 0.17fr 1fr;
-  justify-content: center;
-  align-items: center;
-  row-gap: 30px;
-  column-gap: 20px;
-}
-
-.dialog[open] .dialog_close-button {
-  grid-column: span 2;
-}
-
-.dialog::backdrop {
-  background-color: var(--backdrop-color, rgba(0 0 0 / 0.75));
 }
 
 /*ЭФФЕКТЫ КНОПОК*/
@@ -344,6 +307,52 @@
 .card__icon-button:focus-visible {
   border: 2px solid var(--accent-color, #000);
   transition: border 0.3s ease;
+}
+
+/*ДИАЛОГОВОЕ ОКНО*/
+.dialog {
+  position: fixed;
+  inset: 0;
+  border: none;
+  padding-inline: 30px;
+  padding-block: 30px;
+  box-shadow: var(--box-shadow-inset, inset 0 0 0 2px #000);
+  font-family: var(--font-family-accent, "PressStart2P"), fantasy;
+  font-weight: var(--font-weight-regular, 400);
+  font-size: var(--font-size-dialog-text, 14px);
+  max-inline-size: 353px; /*341 mobile*/
+}
+
+.dialog__text {
+  line-height: var(--line-height-dialog-text, 150%);
+  text-transform: uppercase;
+}
+
+.dialog .floppy__icon {
+  max-width: 39px;
+  height: auto;
+}
+
+.dialog_close-button {
+  width: 100%;
+  padding-block: 9px;
+}
+
+.dialog[open] form {
+  display: grid;
+  grid-template-columns: 0.17fr 1fr;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+  column-gap: 20px;
+}
+
+.dialog[open] .dialog_close-button {
+  grid-column: span 2;
+}
+
+.dialog::backdrop {
+  background-color: var(--backdrop-color, rgba(0 0 0 / 0.75));
 }
 
 @media (width <=375px) {
